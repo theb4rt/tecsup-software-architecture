@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head('View Marca')">
+    <title>View Marca</title>
+</head>
+<body>
+<nav th:replace="fragments/layout :: navbar"></nav>
+
+<div class="container mt-4">
+    <h2>Marca Details</h2>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 th:text="${marca.nombre}">Marca Name</h3>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>ID:</strong> <span th:text="${marca.id}"></span></p>
+            <p class="card-text"><strong>Precio:</strong> <span th:text="${'$' + marca.precio}"></span></p>
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/marcas/edit/{id}(id=${marca.id})}" class="btn btn-warning">Edit</a>
+            <a th:href="@{/marcas/delete/{id}(id=${marca.id})}" class="btn btn-danger"
+               onclick="return confirm('Are you sure you want to delete this marca?')">Delete</a>
+            <a th:href="@{/marcas}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/layout :: footer"></footer>
+</body>
+</html>
