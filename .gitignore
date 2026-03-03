@@ -1,12 +1,25 @@
 ############################################
-# IDE / editor folders 
+# IDE / editor folders (any depth)
 ############################################
 **/.idea/
+**/*.iml
+**/*.ipr
+**/*.iws
 **/.vscode/
 **/.fleet/
 **/.settings/
 **/.project
 **/.classpath
+
+############################################
+# JetBrains / IntelliJ tooling
+############################################
+**/out/
+**/.idea_modules/
+**/.kotlin/
+**/.gradle/
+**/cmake-build-*/
+**/.run/
 
 ############################################
 # OS junk
@@ -15,7 +28,7 @@
 **/Thumbs.db
 
 ############################################
-# Env / secrets 
+# Env / secrets (any depth)
 ############################################
 **/.env
 **/.env.*
@@ -29,26 +42,61 @@
 **/id_rsa.pub
 
 ############################################
-# Your custom directories to never share 
+# Java / Maven / Gradle build artifacts
 ############################################
-**/IDEA/
-**/code/
-# add more like:
-# **/secrets/
-# **/private/
-# **/tmp/
-# **/data/
+**/target/
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+**/hs_err_pid*
+**/dependency-reduced-pom.xml
 
 ############################################
-# Common build/cache
+# Node / frontend build/cache (any depth)
 ############################################
 **/node_modules/
 **/dist/
 **/build/
 **/.next/
 **/.cache/
-**/target/
-**/.terraform/
-**/.venv/
+**/.npm/
+**/.pnpm-store/
+**/.yarn/
+**/coverage/
+**/*.tsbuildinfo
+
+############################################
+# Python (any depth)
+############################################
 **/__pycache__/
+**/*.py[cod]
+**/.venv/
+**/venv/
+**/.mypy_cache/
+**/.pytest_cache/
+
+############################################
+# Terraform (any depth)
+############################################
+**/.terraform/
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/*.tfvars
+**/*.tfvars.json
+
+############################################
+# Logs
+############################################
 **/*.log
+
+############################################
+# Your custom directories to never share (any depth)
+############################################
+**/IDEA/
+**/code/
+# **/secrets/
+# **/private/
+# **/tmp/
+# **/data/
