@@ -1,0 +1,31 @@
+package com.example.productosapi.application.usecase;
+
+import com.example.productosapi.domain.model.Cliente;
+import com.example.productosapi.domain.service.ClienteService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * Use case for retrieving clients
+ */
+@Component
+@RequiredArgsConstructor
+public class GetClienteUseCase {
+
+    private final ClienteService clienteService;
+
+    public Cliente executeById(UUID id) {
+        return clienteService.obtenerClientePorId(id);
+    }
+
+    public Cliente executeByEmail(String email) {
+        return clienteService.obtenerClientePorEmail(email);
+    }
+
+    public List<Cliente> executeAll() {
+        return clienteService.obtenerTodosLosClientes();
+    }
+}

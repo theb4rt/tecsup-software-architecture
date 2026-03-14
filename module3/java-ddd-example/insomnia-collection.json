@@ -1,0 +1,222 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-03-13",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_001",
+      "_type": "workspace",
+      "name": "DDD CRUD API",
+      "description": "Productos & Clientes API",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_001",
+      "_type": "environment",
+      "parentId": "wrk_001",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8080"
+      }
+    },
+
+    {
+      "_id": "fld_productos",
+      "_type": "request_group",
+      "parentId": "wrk_001",
+      "name": "Productos",
+      "description": "CRUD operations for Productos"
+    },
+    {
+      "_id": "fld_clientes",
+      "_type": "request_group",
+      "parentId": "wrk_001",
+      "name": "Clientes",
+      "description": "CRUD operations for Clientes"
+    },
+
+    {
+      "_id": "req_p01",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Create Product",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/productos",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"codigo\": \"PROD-001\",\n  \"nombre\": \"Laptop Dell XPS 15\",\n  \"descripcion\": \"Professional laptop 15 inches, Intel i7, 16GB RAM\",\n  \"precio\": 1299.99,\n  \"stock\": 25,\n  \"categoria\": \"Electronics\"\n}"
+      }
+    },
+    {
+      "_id": "req_p02",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Get All Products",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/productos",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_p03",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Get Product by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/productos/{{product_id}}",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_p04",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Get Product by Code",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/productos/codigo/PROD-001",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_p05",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Get Products by Category",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/productos/categoria/Electronics",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_p06",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Update Product",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/productos/{{product_id}}",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nombre\": \"Laptop Dell XPS 15 Updated\",\n  \"descripcion\": \"Updated description\",\n  \"precio\": 1199.99,\n  \"stock\": 30,\n  \"categoria\": \"Electronics\"\n}"
+      }
+    },
+    {
+      "_id": "req_p07",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Update Product Status",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/api/productos/{{product_id}}/estado",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"activo\": false\n}"
+      }
+    },
+    {
+      "_id": "req_p08",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Update Product Stock",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/api/productos/{{product_id}}/stock",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"cantidad\": 10\n}"
+      }
+    },
+    {
+      "_id": "req_p09",
+      "_type": "request",
+      "parentId": "fld_productos",
+      "name": "Delete Product",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/productos/{{product_id}}",
+      "headers": [],
+      "body": {}
+    },
+
+    {
+      "_id": "req_c01",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Create Client",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/clientes",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nombre\": \"Carlos\",\n  \"apellido\": \"Mendoza\",\n  \"email\": \"carlos.mendoza@gmail.com\",\n  \"telefono\": \"987-654-001\",\n  \"direccion\": \"Av. Larco 740, Miraflores, Lima\"\n}"
+      }
+    },
+    {
+      "_id": "req_c02",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Get All Clients",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/clientes",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_c03",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Get Client by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/clientes/{{client_id}}",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_c04",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Get Client by Email",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/clientes/email/carlos.mendoza@gmail.com",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_c05",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Update Client",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/api/clientes/{{client_id}}",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nombre\": \"Carlos Updated\",\n  \"apellido\": \"Mendoza\",\n  \"email\": \"carlos.mendoza@gmail.com\",\n  \"telefono\": \"987-654-999\",\n  \"direccion\": \"Jr. de la Unión 456, Cercado de Lima\"\n}"
+      }
+    },
+    {
+      "_id": "req_c06",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Update Client Status",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/api/clientes/{{client_id}}/estado",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"activo\": false\n}"
+      }
+    },
+    {
+      "_id": "req_c07",
+      "_type": "request",
+      "parentId": "fld_clientes",
+      "name": "Delete Client",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/clientes/{{client_id}}",
+      "headers": [],
+      "body": {}
+    }
+  ]
+}
